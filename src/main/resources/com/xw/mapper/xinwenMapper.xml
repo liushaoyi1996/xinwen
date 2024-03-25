@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xw.mapper.xinwenMapper">
+	<select id="adminLog" resultType="int" parameterType="java.util.Map">
+		select COUNT(*) from admin where name=#{name1} and psw=#{psw}
+	</select>
+
+	<insert id="zhuce" parameterType="java.util.Map">
+		INSERT INTO admin(name,psw) VALUE(#{name1},#{psw});
+	</insert>
+
+	<select id="All" resultType="xinwen">
+		select * from xinwen
+	</select>
+
+	<insert id="addxw" parameterType="java.util.Map">
+		INSERT INTO xinwen(title,main,name1,time) VALUE(#{title},#{main},#{name1},#{time});
+	</insert>
+
+	<delete id="Delxw" parameterType="java.util.Map">
+		DELETE FROM xinwen WHERE title=#{name1};
+	</delete>
+
+</mapper>
